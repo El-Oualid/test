@@ -4,7 +4,7 @@
 
 - [Overview](#overview)
 - [Components ](#Components)
-- [How the Components Work Together](#how-the-components-work-together)
+- [Configuration and Parameter Validation](#Configuration-and-Parameter-Validation)
 
 ## Overview
 This Crawler Web App is designed to facilitate and manage the complex operations involved in large-scale web crawling. It provides a reliable framework for handling various aspects of web crawling, including uploading and managing URL lists, processing crawled data, triggering recrawls, and parsing robots.txt files to ensure compliance with website crawling policies.
@@ -52,3 +52,12 @@ This feature allows for the uploading and management of custom `robots.txt` file
 ### 5. Metrics and Monitoring
 - **Graphite Integration:** <br>
 The system is tightly integrated with Graphite, a monitoring and metrics tool. Through this integration, the system continuously reports key performance indicators (KPIs) such as request rates, processing times, and system health metrics. These real-time insights are crucial for maintaining operational stability and for proactively addressing any issues that may arise during the crawling and data processing workflows. The metrics provide visibility into the system’s performance, enabling optimization and ensuring that the infrastructure can scale with the demands placed upon it.
+
+
+## Configuration and Parameter Validation
+- **Configuration** <br>
+The application has a Configuration file that provides methods to load and get different settings, which is key in setting up or controlling this web application environment. The configuration file manages configurations for key components 
+like **Hadoop**, **Accumulo**, and **Oozie** by loading settings from various XML files and managing paths and directories needed for data uploads and processing. also sets up the Oozie client, and includes application-specific settings like job tracker paths, metrics, and blacklisted queries. Additionally, it comes with helper functions for URLs and time formatting, as well as creating a **Graphite prefix based on the hostname**.
+- **Parameter Validation** <br>
+The domain and mode parameters in HTTP requests are valid to ensure that only valid requests are processed. It checks if **domain**  is present and if **mode**  is either **r**  or **a**. If validation fails, it sends an HTTP 500 error and throws a **ServletException**, helping to enforce proper parameter usage in the web application.
+
