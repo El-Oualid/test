@@ -4,6 +4,7 @@
 
 - [Overview](#overview)
 - [Components ](#Components)
+- [How the Components Work Together](#how-the-components-work-together)
 - [Configuration and Parameter Validation](#Configuration-and-Parameter-Validation)
 
 ## Overview
@@ -52,6 +53,9 @@ This feature allows for the uploading and management of custom `robots.txt` file
 ### 5. Metrics and Monitoring
 - **Graphite Integration:** <br>
 The system is tightly integrated with Graphite, a monitoring and metrics tool. Through this integration, the system continuously reports key performance indicators (KPIs) such as request rates, processing times, and system health metrics. These real-time insights are crucial for maintaining operational stability and for proactively addressing any issues that may arise during the crawling and data processing workflows. The metrics provide visibility into the system’s performance, enabling optimization and ensuring that the infrastructure can scale with the demands placed upon it.
+
+## How the Components Work Together
+The project is built using multiple components, each component fulfills a distinct role to facilitate effective and efficient operations. Users begin by uploading URL lists through dedicated servlets, which validate and store the files locally before background jobs transfer them to HDFS for processing. As the crawler generates data, it is similarly managed, uploaded, and made available in HDFS for analysis. Recrawl operations are triggered through simple requests, with Oozie orchestrating the process to ensure only relevant pages are recrawled based on updated data. The system also handles the automatic fetching and processing of robots.txt files to enforce crawl permissions, storing these rules in Accumulo. Custom rules can be applied as needed. Throughout these operations, real-time monitoring via Graphite provides continuous insights into the system’s health and performance, enabling proactive management and optimization.
 
 
 ## Configuration and Parameter Validation
