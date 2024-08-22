@@ -39,16 +39,16 @@ This component provides endpoints that allow users to monitor the progress of th
 
 ### 4. Robots.txt Handling
 
-- **Robots.txt Fetching and Parsing:**
+- **Robots.txt Fetching and Parsing:** <br>
     
 A crucial component that handles the retrieval of `robots.txt` files from the domains being crawled. These files dictate the rules that crawlers must follow, such as which parts of a site can or cannot be crawled. The fetched files are parsed to extract these rules, which are then stored in **Accumulo**, a distributed key/value store, ensuring that the crawler respects site-specific policies during its operations.
 
-- **Custom Robots.txt Management:**
+- **Custom Robots.txt Management:** <br>
     
 This feature allows for the uploading and management of custom `robots.txt` files. These custom files can override the standard rules fetched from websites, enabling more granular control over the crawling process. This is particularly useful in scenarios where default crawling rules are too restrictive or need to be adjusted for specific crawling campaigns.
     
 
 
 ### 5. Metrics and Monitoring
-- **Graphite Integration:**
+- **Graphite Integration:** <br>
 The system is tightly integrated with Graphite, a monitoring and metrics tool. Through this integration, the system continuously reports key performance indicators (KPIs) such as request rates, processing times, and system health metrics. These real-time insights are crucial for maintaining operational stability and for proactively addressing any issues that may arise during the crawling and data processing workflows. The metrics provide visibility into the system’s performance, enabling optimization and ensuring that the infrastructure can scale with the demands placed upon it.
